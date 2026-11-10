@@ -1,0 +1,53 @@
+<AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
+  <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml" i:nil="true" />
+  <clientauth>
+    <aad>
+      <audience>41b23e61-6c1e-4545-b367-cd054e0ed4b4</audience>
+      <cachesigninuser>true</cachesigninuser>
+      <enablegrouptoken>false</enablegrouptoken>
+      <issuer>https://sts.windows.net/{{TENANT_ID}}/</issuer>
+      <tenant>https://login.microsoftonline.com/{{TENANT_ID}}</tenant>
+    </aad>
+    <cert i:nil="true" />
+    <type>aad</type>
+    <usernamepass i:nil="true" />
+  </clientauth>
+  <clientconfig>
+    <dnsservers>
+      <dnsserver>{{DNS_SERVER_1}}</dnsserver>
+      <dnsserver>{{DNS_SERVER_2}}</dnsserver>
+    </dnsservers>
+    <dnssuffixes>
+      <dnssuffix>{{INTERNAL_DOMAIN}}</dnssuffix>
+      <dnssuffix>.{{INTERNAL_DOMAIN}}</dnssuffix>
+      <dnssuffix>.file.core.windows.net</dnssuffix>
+      <dnssuffix>.blob.core.windows.net</dnssuffix>
+      <dnssuffix>.vaultcore.azure.net</dnssuffix>
+      <dnssuffix>.database.windows.net</dnssuffix>
+    </dnssuffixes>
+    <excluderoutes i:nil="true" />
+    <includeroutes i:nil="true" />
+  </clientconfig>
+  <name>{{CUSTOMER_NAME}} - Client VPN</name>
+  <protocolconfig>
+    <sslprotocolConfig>
+      <transportprotocol>tcp</transportprotocol>
+    </sslprotocolConfig>
+  </protocolconfig>
+  <serverlist>
+    <ServerEntry>
+      <displayname i:nil="true" />
+      <fqdn>{{GATEWAY_FQDN}}</fqdn>
+    </ServerEntry>
+  </serverlist>
+  <servervalidation>
+    <Cert>
+      <hash>DF3C24F9BFD666761B268073FE06D1CC8D4F82A4</hash>
+      <issuer i:nil="true" />
+    </Cert>
+    <serversecret>{{SERVER_SECRET}}</serversecret>
+    <type>cert</type>
+    <usepinnedroot>false</usepinnedroot>
+  </servervalidation>
+  <version>1</version>
+</AzVpnProfile>
